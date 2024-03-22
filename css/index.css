@@ -227,8 +227,9 @@
         -webkit-background-size: cover;
         background-size: cover;
         background-position: center center;
-        animation: blob 5s ease-in-out infinite;
-        transition: all 1s ease-in-out;
+        animation: blob 30s ease-in-out infinite;
+        transition: border-radius 1s ease-in-out;
+        outline: 2px solid var(--dark-secondary-color);
     }
     
     @keyframes blob {

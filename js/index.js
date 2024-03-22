@@ -69,3 +69,26 @@ TxtType.prototype.tick = function() {
 };
 
 window.onload = main();
+
+let menuButton = document.querySelector("#menu-button");
+let menu = document.querySelector("#menu");
+
+menuButton.isOpened = false;
+menuButton.addEventListener('click', () => {
+    if (menuButton.isOpened) {
+        menuButton.isOpened = false;
+        menu.style.display = "none";
+
+        menuButton.className = "fa-solid fa-bars";
+    } else {
+        menuButton.isOpened = true;
+        menu.style.display = "flex";
+
+        menuButton.className = "fa-solid fa-xmark";
+    }
+});
+
+menu.addEventListener('click', () => {
+    menu.style.display = "none";
+    menuButton.className = "fa-solid fa-bars";
+});

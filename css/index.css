@@ -46,7 +46,6 @@
     body,
     html {
         font-size: 17px;
-        overflow-x: hidden;
     }
     
     main {
@@ -186,6 +185,7 @@
     }
     
     .nav i {
+        outline: none;
         display: none;
     }
     /* SUMMARY */
@@ -220,13 +220,33 @@
     }
     
     .summary .graduation-picture {
-        grid-row: 1/4
+        grid-row: 1/4;
+        height: 20rem;
+        width: 20rem;
+        background: url("/assets/Graduation[SMALL].png");
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+        animation: blob 5s ease-in-out infinite;
+        transition: all 1s ease-in-out;
     }
     
-    .summary .graduation-picture img {
+    @keyframes blob {
+        0% {
+            border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+        }
+        50% {
+            border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+        }
+        100% {
+            border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+        }
+    }
+    /* .summary .graduation-picture img {
         border-radius: 50%;
         height: 18rem;
-    }
+        object-fit: cover;
+    } */
     /* ABOUT */
     
     .about {
@@ -423,7 +443,7 @@
     }
     
     .project img {
-        height: 10rem;
+        height: -webkit-fill-available;
         width: 15rem;
         border-radius: .5rem;
         object-fit: cover;
@@ -520,6 +540,10 @@
             --default-size: .9rem;
             --small-size: .6rem;
         }
+        body,
+        html {
+            overflow-x: hidden;
+        }
         body {
             padding: 0 1rem;
             gap: 1rem;
@@ -579,6 +603,9 @@
             grid-row: 4/4;
         }
         .summary div:nth-child(4) {
+            height: 15rem;
+            width: 15rem;
+            /* display: none; */
             grid-row: 1/1;
         }
         /* ABOUT */
@@ -612,6 +639,7 @@
             text-align: center;
         }
         .project img {
+            height: 10rem;
             width: 100%;
         }
         /* FOOTER */

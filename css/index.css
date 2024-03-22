@@ -505,6 +505,9 @@
     .contacts {
         display: grid;
         grid-template-columns: 10rem 10rem;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
         width: fit-content;
         gap: 1rem;
     }

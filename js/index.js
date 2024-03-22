@@ -89,6 +89,9 @@ menuButton.addEventListener('click', () => {
 });
 
 menu.addEventListener('click', () => {
-    menu.style.display = "none";
-    menuButton.className = "fa-solid fa-bars";
+    console.log(menuButton);
+    if (menuButton.offsetParent != null) {
+        menu.style.display = "none";
+        menuButton.className = "fa-solid fa-bars";
+    }
 });

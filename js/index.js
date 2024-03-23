@@ -25,6 +25,39 @@ function main() {
 
     const hiddenElements = document.querySelectorAll(".hidden");
     hiddenElements.forEach(el => scrollObserver.observe(el));
+
+    let menuButton = document.querySelector("#menu-button");
+    let menu = document.querySelector("#menu");
+
+    menuButton.isOpened = false;
+    menuButton.addEventListener('click', () => {
+        if (menuButton.isOpened) {
+            menuButton.isOpened = false;
+            menu.style.display = "none";
+
+            menuButton.className = "fa-solid fa-bars";
+        } else {
+            menuButton.isOpened = true;
+            menu.style.display = "flex";
+
+            menuButton.className = "fa-solid fa-xmark";
+        }
+    });
+
+    menu.addEventListener('click', () => {
+        console.log(menuButton);
+        if (menuButton.offsetParent != null) {
+            menu.style.display = "none";
+            menuButton.className = "fa-solid fa-bars";
+        }
+    });
+
+    let scrollToTopButton = document.querySelector("#contact i");
+    scrollToTopButton.addEventListener("click", () => {
+        document.body.srollTop = 0;
+        document.documentElement.scrollTop = 0;
+
+    });
 }
 
 var TxtType = function(el, toRotate, period) {
@@ -69,29 +102,3 @@ TxtType.prototype.tick = function() {
 };
 
 window.onload = main();
-
-let menuButton = document.querySelector("#menu-button");
-let menu = document.querySelector("#menu");
-
-menuButton.isOpened = false;
-menuButton.addEventListener('click', () => {
-    if (menuButton.isOpened) {
-        menuButton.isOpened = false;
-        menu.style.display = "none";
-
-        menuButton.className = "fa-solid fa-bars";
-    } else {
-        menuButton.isOpened = true;
-        menu.style.display = "flex";
-
-        menuButton.className = "fa-solid fa-xmark";
-    }
-});
-
-menu.addEventListener('click', () => {
-    console.log(menuButton);
-    if (menuButton.offsetParent != null) {
-        menu.style.display = "none";
-        menuButton.className = "fa-solid fa-bars";
-    }
-});

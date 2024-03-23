@@ -261,10 +261,9 @@
     
     .about .about-contents {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(4, 1fr);
         column-gap: 1rem;
-        align-items: center;
     }
     
     .about .about-contents .content:not(:first-child) {
@@ -293,7 +292,8 @@
     }
     
     .about .about-contents .content:first-child img {
-        height: 15rem;
+        height: 100%;
+        width: 100%;
         border-radius: .5rem;
     }
     
@@ -404,19 +404,24 @@
     }
     
     .project-list {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 1rem;
     }
     
     .project {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 20rem;
         gap: 1rem;
         background-color: var(--dark-secondary-color);
         opacity: .9;
         border-radius: .5rem;
         padding: 1rem;
+    }
+    
+    .project:nth-child(even) img {
+        order: 1;
     }
     
     .project.hidden {
@@ -431,21 +436,9 @@
         opacity: 1;
     }
     
-    .project:nth-child(2) {
-        transition-delay: 100ms;
-    }
-    
-    .project:nth-child(3) {
-        transition-delay: 200ms;
-    }
-    
-    .project:nth-child(4) {
-        transition-delay: 300ms;
-    }
-    
     .project img {
-        height: -webkit-fill-available;
-        width: 15rem;
+        height: 100%;
+        width: 100%;
         border-radius: .5rem;
         object-fit: cover;
     }
@@ -472,6 +465,8 @@
     .project-details {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
         gap: .5rem;
     }
     
@@ -483,6 +478,24 @@
     .project-buttons a {
         text-decoration: none;
         display: block;
+    }
+    
+    #contact {
+        position: relative;
+    }
+    
+    #contact i {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-right: 1rem;
+        font-size: 2rem;
+    }
+    
+    #contact i:hover,
+    #contact i:focus {
+        color: var(--dark-accent-color);
+        cursor: pointer;
     }
     /* FOOTER */
     
@@ -506,8 +519,6 @@
         display: grid;
         grid-template-columns: 10rem 10rem;
         align-items: center;
-        justify-content: center;
-        justify-items: center;
         width: fit-content;
         gap: 1rem;
     }
@@ -634,6 +645,7 @@
         }
         /* PROJECTS  */
         .project {
+            height: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -646,6 +658,9 @@
             height: 10rem;
             width: 100%;
         }
+        .project:nth-child(even) img {
+            order: unset;
+        }
         /* FOOTER */
         footer {
             flex-direction: column;
@@ -654,7 +669,6 @@
             text-align: center;
         }
         .contacts {
-            align-items: center;
             justify-items: center;
         }
         .blur {

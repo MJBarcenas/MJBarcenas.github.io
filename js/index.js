@@ -1,12 +1,47 @@
 let introductions = ["Michael Justin", "a Software Developer", "a Passionate Person"];
+var elements = document.querySelector('#introduction');
+
+function showHacker(intro_index) {
+    let iterations = 0;
+    let hackerCode = setInterval(() => {
+        elements.innerText = introductions[intro_index].split("")
+            .map((letter, index) => {
+                if (letter == " ") {
+                    return letter;
+                }
+
+                if (index < iterations) {
+                    return introductions[intro_index][index];
+                }
+
+                let randomChar = String.fromCharCode([Math.floor(Math.random() * 26) + 97]);
+                return randomChar;
+            })
+            .join("");
+        // console.log(intro_index);
+        if (iterations >= introductions[intro_index].length) {
+            clearInterval(hackerCode);
+            setTimeout(() => {
+                if (intro_index >= introductions.length - 1) {
+                    showHacker(0);
+                } else {
+                    showHacker(intro_index + 1);
+                }
+            }, 2000);
+        }
+        iterations += 1;
+    }, 100);
+}
 
 function main() {
-    var elements = document.querySelector('#introduction');
-    var toRotate = introductions;
-    var period = 2000;
-    if (toRotate) {
-        new TxtType(elements, introductions, period);
-    }
+    showHacker(0);
+
+    // var elements = document.querySelector('#introduction');
+    // var toRotate = introductions;
+    // var period = 2000;
+    // if (toRotate) {
+    //     new TxtType(elements, introductions, period);
+    // }
 
     const el = document.querySelector(".nav");
     const observer = new IntersectionObserver(
@@ -77,6 +112,11 @@ TxtType.prototype.tick = function() {
     if (this.isDeleting) {
         this.txt = fullTxt.substring(0, this.txt.length - 1);
     } else {
+        for (let i = 0; i < 5; i++) {
+            let randomChar = String.fromCharCode([Math.floor(Math.random() * 26) + 97]);
+            this.txt = fullTxt.substring(0, this.txt.length) + randomChar;
+            this.el.innerHTML = '<span id="introduction">' + this.txt + '</span>';
+        }
         this.txt = fullTxt.substring(0, this.txt.length + 1);
     }
 

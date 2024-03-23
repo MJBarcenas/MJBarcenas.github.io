@@ -1,4 +1,4 @@
-let introductions = ["Michael Justin", "a Software Developer", "a Passionate Person"];
+let introductions = ["Hi, I'm Michael Justin", "I'm a Software Developer", "I'm a Passionate Person"];
 var elements = document.querySelector('#introduction');
 
 function showHacker(intro_index) {
@@ -29,8 +29,8 @@ function showHacker(intro_index) {
                 }
             }, 2000);
         }
-        iterations += 1;
-    }, 100);
+        iterations += 1 / 3;
+    }, 30);
 }
 
 function main() {

@@ -1,18 +1,18 @@
     @font-face {
         font-family: Outfit;
-        src: url(../assets/Outfit-Regular.ttf) format(truetype);
+        src: url(../assets/fonts/Outfit-Regular.ttf) format(truetype);
     }
     
     @font-face {
-        font-family: Roboto;
-        src: url(../assets/Roboto-Regular.ttf) format(truetype);
+        font-family: Fira;
+        src: url(../assets/fonts/FiraMono-Medium.ttf) format(truetype);
     }
     
      :root {
         --dark-primary-color: #09152d;
         --dark-secondary-color: #223569;
         --dark-accent-color: #5e6cbb;
-        --footer-background-color: #23376c;
+        --footer-background-color: #383838;
         --dark-font-color: #fff;
         --heading-size: 2rem;
         --title-size: 2.5rem;
@@ -156,7 +156,7 @@
     nav {
         position: sticky;
         top: -1px;
-        padding-top: 2rem;
+        padding: 1rem 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -168,10 +168,8 @@
         background-color: var(--dark-primary-color);
     }
     
-    nav h1 a {
-        font-size: var(--heading-size);
-        font-weight: bolder;
-        text-decoration: none;
+    nav h1 a img {
+        height: 3rem;
     }
     
     nav ul {
@@ -206,6 +204,7 @@
     .summary div span {
         font-size: inherit;
         font-weight: inherit;
+        font-family: Fira;
     }
     
     .summary div:nth-child(2) {
@@ -223,7 +222,7 @@
         grid-row: 1/4;
         height: 20rem;
         width: 20rem;
-        background: url("/assets/Graduation[SMALL].png");
+        background: url("/assets/img/Graduation[SMALL].png");
         -webkit-background-size: cover;
         background-size: cover;
         background-position: center center;
@@ -295,6 +294,7 @@
         height: 100%;
         width: 100%;
         border-radius: .5rem;
+        object-fit: cover;
     }
     
     .about .about-contents .content .about-title {

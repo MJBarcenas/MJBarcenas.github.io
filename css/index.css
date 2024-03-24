@@ -52,7 +52,8 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: 4rem
+        gap: 4rem;
+        margin-top: 7rem;
     }
     
     .button {
@@ -103,7 +104,7 @@
     }
     
     .first {
-        top: -2%;
+        top: 5%;
         left: 8%;
         min-height: 200px;
         min-width: 200px;
@@ -154,22 +155,26 @@
     /* NAVIGATIONBAR */
     
     nav {
-        position: sticky;
-        top: -1px;
-        padding: 1rem 0;
+        background-color: var(--dark-primary-color);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+    
+    nav>div {
+        margin: 0 auto;
+        padding: 1rem 4rem;
+        max-width: 1250px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
-        z-index: 2;
-    }
-    
-    nav.fixed {
-        background-color: var(--dark-primary-color);
     }
     
     nav h1 a img {
-        height: 3rem;
+        height: var(--title-size);
     }
     
     nav ul {
@@ -228,7 +233,7 @@
         background-position: center center;
         animation: blob 30s ease-in-out infinite;
         transition: border-radius 1s ease-in-out;
-        outline: 2px solid var(--dark-secondary-color);
+        border: 2px solid var(--dark-secondary-color);
     }
     
     @keyframes blob {
@@ -563,11 +568,8 @@
             padding: 0 1rem;
             gap: 1rem;
         }
-        nav {
+        nav div {
             padding: 1rem;
-            position: fixed;
-            width: 100vw;
-            transform: translateX(-1rem);
         }
         nav ul {
             position: absolute;
@@ -597,7 +599,6 @@
         /* MAIN */
         main {
             gap: 1rem;
-            margin-top: 7rem;
         }
         /* SUMMARY */
         .summary {

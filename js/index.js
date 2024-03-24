@@ -80,8 +80,8 @@ function main() {
     });
 
     menu.addEventListener('click', () => {
-        console.log(menuButton);
-        if (menuButton.offsetParent != null) {
+        let style = window.getComputedStyle(menuButton);
+        if (style.display != "none") {
             menu.style.display = "none";
             menuButton.className = "fa-solid fa-bars";
         }

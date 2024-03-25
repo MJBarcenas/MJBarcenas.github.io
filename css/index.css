@@ -645,8 +645,11 @@
     
     @media only screen and (max-width: 820px) {
          :root {
-            --heading-size: 1.8rem;
-            --title-size: 2.2rem;
+            --heading-size: 1.6rem;
+            --title-size: 1.9rem;
+            --button-size: 1.1rem;
+            --default-size: .7rem;
+            --small-size: .5rem;
         }
         body,
         html {
@@ -696,11 +699,13 @@
         }
         /* SUMMARY */
         .summary {
+            height: unset;
             margin-top: 6rem;
             grid-template-columns: 1fr;
             justify-items: center;
             align-items: center;
-            gap: .5rem;
+            row-gap: .5rem;
+            column-gap: 0;
             text-align: center;
         }
         .summary .graduation-picture {

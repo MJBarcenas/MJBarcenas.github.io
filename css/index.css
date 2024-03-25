@@ -700,6 +700,7 @@
         /* SUMMARY */
         .summary {
             height: unset;
+            max-height: unset;
             margin-top: 6rem;
             grid-template-columns: 1fr;
             justify-items: center;

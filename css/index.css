@@ -729,13 +729,14 @@
             /* display: none; */
         }
         .summary-skills {
-            gap: 0;
             margin-top: 4rem;
             flex-direction: column;
         }
         .summary-skills>div:first-child {
             border-right: 0;
             padding: unset;
+            border-bottom: 3px solid var(--dark-font-color);
+            padding: 0 .5rem;
         }
         .summary-skills .skills {
             flex-wrap: wrap;

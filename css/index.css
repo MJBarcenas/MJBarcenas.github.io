@@ -137,17 +137,6 @@
         min-width: 400px;
     }
     
-    span.caret {
-        border-right: .05em solid;
-        animation: caret 1s steps(1) infinite;
-    }
-    
-    @keyframes caret {
-        50% {
-            border-color: transparent;
-        }
-    }
-    
     .hidden {
         opacity: 0;
         filter: blur(2px);
@@ -167,12 +156,14 @@
     /* NAVIGATIONBAR */
     
     nav {
-        background-color: var(--dark-primary-color);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
         width: 100%;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 2;
+        border-bottom: 1px solid #cbd5e11a;
     }
     
     nav>div {
@@ -189,10 +180,23 @@
         height: var(--title-size);
     }
     
+    nav h1 a img:hover {
+        mix-blend-mode: difference;
+        filter: invert(1) hue-rotate(180deg);
+    }
+    
     nav ul {
         display: flex;
         list-style-type: none;
         gap: 1.5rem
+    }
+    
+    nav ul li a {
+        font-weight: bolder;
+    }
+    
+    nav ul li a:hover {
+        color: var(--dark-accent-color);
     }
     
     .nav i {
@@ -202,7 +206,7 @@
     /* SUMMARY */
     
     .summary {
-        height: 100dvh;
+        height: calc(100dvh - 10rem - 8rem);
         margin-top: 10rem;
         display: grid;
         grid-template-columns: auto 1fr;
@@ -416,6 +420,18 @@
         transform: rotate(180deg);
     }
     
+    .experience .experience-timeline .timeline-circle p {
+        font-size: 1rem;
+        font-weight: bolder;
+        position: absolute;
+        right: 5rem;
+        width: max-content;
+    }
+    
+    .experience .experience-timeline .timeline-circle:nth-child(even) p {
+        left: 5rem;
+    }
+    
     .experience .experience-timeline .timeline-circle img {
         width: 4rem;
         height: 4rem;
@@ -464,6 +480,7 @@
     .experience .experience-works .work .work-date {
         font-style: italic;
         font-size: var(--small-size);
+        display: none;
     }
     
     .experience .experience-works .work:nth-child(even) {
@@ -794,6 +811,9 @@
             left: unset;
             transform: unset;
         }
+        .experience .experience-timeline .timeline-circle p {
+            display: none;
+        }
         /* .experience .experience-works .work:nth-child(even).hidden {
             transform: translateX(calc(-200% - 4rem - 4rem - 2rem));
         }
@@ -806,6 +826,9 @@
         }
         .experience .experience-works .work:nth-child(even).show {
             transform: translateX(0);
+        }
+        .experience .experience-works .work .work-date {
+            display: unset;
         }
         /* PROJECTS  */
         .project {

@@ -43,13 +43,6 @@ function main() {
     //     new TxtType(elements, introductions, period);
     // }
 
-    const el = document.querySelector(".nav");
-    const observer = new IntersectionObserver(
-        ([e]) => e.target.classList.toggle("fixed", e.intersectionRatio < 1), { threshold: [1] }
-    );
-
-    observer.observe(el);
-
     const scrollObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -142,3 +135,12 @@ TxtType.prototype.tick = function() {
 };
 
 window.onload = main();
+let nav = document.querySelector("nav");
+window.onscroll = () => {
+    if (document.body.scrollTop != 0 || document.documentElement.scrollTop != 0) {
+        nav.style.backgroundColor = "#0f172abf";
+        // background-color: #0f172abf;
+    } else {
+        nav.style.backgroundColor = "unset";
+    }
+};

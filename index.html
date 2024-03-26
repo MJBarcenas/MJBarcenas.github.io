@@ -251,6 +251,14 @@
             </div>
         </div>
     </main>
+    <div id="container">
+
+    </div>
+    <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+        <feBlend in="SourceGraphic" in2="goo" />
+    </filter>
     <div id="contact">
         <i class="fa-solid fa-circle-arrow-up"></i>
     </div>

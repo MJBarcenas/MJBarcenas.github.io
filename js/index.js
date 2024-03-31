@@ -149,10 +149,6 @@ function main() {
     document.body.srollTop = 0;
     document.documentElement.scrollTop = 0;
   });
-
-  let copyRightDiv = document.querySelector("#copyright");
-  let year = new Date().getFullYear();
-  copyRightDiv.innerText = "All rights reserved " + year;
 }
 
 var TxtType = function (el, toRotate, period) {
